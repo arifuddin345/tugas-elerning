@@ -10,7 +10,7 @@ using namespace std;
         cout << " MENU\n";
         cout << "============================\n";
         cout << "1.push Stack \n";
-        cout << "2.poptack \n";
+        cout << "2.pop stack \n";
         cout << "3.Cek stack \n";
         cout << "4.Delete Data  \n";
         cout << "5.print  \n";
