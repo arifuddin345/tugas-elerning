@@ -1,83 +1,66 @@
 #include <iostream>
-#define MAX 10
+#include <iomanip>
 using namespace std;
+ int main() {
+    int plh;
+    int top = 0, i;
+    int sisa;
+    char Nama[20][20], Posisi[20][20];
+    do { cout << "============================\n";
+        cout << " MENU\n";
+        cout << "============================\n";
+        cout << "1.push Stack \n";
+        cout << "2.poptack \n";
+        cout << "3.Cek stack \n";
+        cout << "4.Delete Data  \n";
+        cout << "5.print  \n";
+        cout << "6.Exit \n";
+        cout << "============================\n";
+        cout << "Masukkan Pilihan : ";cin >> plh;
 
-struct Stack {
-	char top , data[5][5];
-} Tumpukan;
+if (plh <= 6){ switch (plh)
+        { case 1:
+         if (top == 4) {
+            cout << "Tumpukan Penuh!!" << endl;
 
-void init() {
-	Tumpukan.top = -1;
-}
-
-bool isEmpty() {
-	return Tumpukan.top == -1;
-}
-
-bool isFull() {
-	return Tumpukan.top == MAX - 1;
-}
-
-void push() {
-	if (isFull()) {
-		cout << "\nTumpukan penuh" << endl;
-	} else {
-		Tumpukan.top++;
-		cout << "\nMasukkan data = ";
-		cin >> Tumpukan.data[Tumpukan.top];
-		cout << "Data " << Tumpukan.data[Tumpukan.top] << " masuk ke stack"
-			 << endl;
-	}
-}
-
-void pop() {
-	if (isEmpty()) {
-		cout << "\nData kosong\n" << endl;
-	} else {
-		cout << "\nData " << Tumpukan.data[Tumpukan.top] << " sudah terambil"
-			 << endl;
-		Tumpukan.top--;
-	}
-}
-
-void printStack() {
-	if (isEmpty()) {
-		cout << "Tumpukan kosong";
-	} else {
-		cout << "\nTumpukan : ";
-		for (int i = Tumpukan.top; i >= 0; i--)
-			cout << Tumpukan.data[i] << ((i == 0) ? "" : ",");
-
-	}
-}
-
-int main() {
-	int pilihan;
-	char data[5][5];
-	init();
-
-	do {
-		printStack();
-		cout << "\n1. Input (Push)\n"
-			 << "2. Hapus (Pop)\n"
-			  << "3. print\n"
-			 << "4. Keluar\n"
-			 << "Masukkan Pilihan: ";
-		cin >> pilihan;
-		switch (pilihan) {
-		case 1:
-			push();
-			break;
-		case 2:
-			pop();
-			break;
-        case 3:
-			printStack();
-			break;
-
-		default:
-			cout << "Pilihan tidak tersedia" << endl;
-			break;
-		}
-	} while (pilihan != 4);
+        } else {
+            cout << "Masukkan Nama pemain : "; cin >> Nama[top + 1];
+            cout << "Masukkan Posisi : "; cin >> Posisi[top + 1];
+            cout << "Stack sudah dimasukkan!!" << endl;
+        top++; }
+            break;
+     case 2:
+         if (top<1) {
+        cout << "Tumpukan Sudah Kosong!!" << endl;
+          } else {
+        cout << "\nTumpukan yang ditampilkan :" << top << "\n\n";
+        cout << "Nama : " << Nama[top] << endl;
+          cout << "Posisi     : " << Posisi[top] << endl;
+          top--; cout << "Tumpukan sudah dikeluarkan!!" << endl; } break;
+    case 3:
+        if (top == 3){
+        cout << "Tumpukan Sudah Penuh!" << endl;
+} else if
+(top >= 1) { sisa = 3 - top;
+        cout << "Tumpukan Masih Ada, Anda Mempunyai " << sisa << " Ruang Data" << endl;
+} else if (top == 0) {
+     cout << "Sekarang Tumpukan Habis!" << endl;
+} break; case 4:
+    top = 0;
+    cout << "Tumpukan Sudah Didelete Semua!" << endl;
+  break; case 5:
+      cout << "NO || Nama|| Posisi ||\n";
+if (top == 0)
+    cout << "Tumpukan Kosong!" << endl;
+else for (i = 1; i <= top;
+i++){
+    cout<<setiosflags(ios::left)<<setw(8)<<i;
+    cout<<setiosflags(ios::left)<<setw(17)<<Nama[i];
+    cout<<setiosflags(ios::left)<<setw(10)<< Posisi[i] << endl;
+    }
+    break; case 6: cout << "\n\nKeluar.........";
+    break;
+    } } else {
+         cout << "Pilihan Salah , Silahkan Masukkan 1-6" << endl;
+    } } while (plh != 6);
 }
